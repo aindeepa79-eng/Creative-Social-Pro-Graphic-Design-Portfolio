@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Creative Social Pro | Luxury Graphic Design Portfolio</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #050505;
+      font-family: 'Inter', sans-serif;
+      color: #EDEDED;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* luxury dark theme with gold/blue accents */
+    :root {
+      --dark-bg: #0a0a0a;
+      --card-bg: rgba(18, 18, 22, 0.75);
+      --glass-border: rgba(255, 215, 0, 0.2);
+      --gold: #D4AF37;
+      --gold-light: #F2C94C;
+      --blue-accent: #0A66C2;
+      --blue-glow: #1E88E5;
+      --white: #FFFFFF;
+      --gray-light: #CCCCCC;
+      --shadow-xl: 0 25px 40px -12px rgba(0,0,0,0.5);
+    }
+
+    /* glassmorphism core */
+    .glass-card {
+      background: rgba(20, 20, 28, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 28px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(212, 175, 55, 0.6);
+      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+    }
+
+    /* container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    /* hero background glow effect */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.15), rgba(10, 102, 194, 0.1), transparent 70%);
+      z-index: 0;
+      animation: slowDrift 18s infinite alternate;
+    }
+
+    @keyframes slowDrift {
+      0% { transform: scale(1) translate(0%, 0%); opacity: 0.5; }
+      100% { transform: scale(1.2) translate(5%, 3%); opacity: 0.9; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFF 30%, #D4AF37 70%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      animation: fadeUp 0.8s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      color: #ccc;
+      margin-bottom: 40px;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 38px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(95deg, #D4AF37, #B8860B);
+      color: #0a0a0a;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -8px rgba(212, 175, 55, 0.5);
+      background: linear-gradient(95deg, #e6c34a, #d4af37);
+    }
+
+    .btn-outline {
+      border: 1.5px solid #D4AF37;
+      background: transparent;
+      color: #D4AF37;
+    }
+
+    .btn-outline:hover {
+      background: rgba(212, 175, 55, 0.15);
+      transform: translateY(-5px);
+      border-color: #F2C94C;
+      color: #F2C94C;
+    }
+
+    /* section headers */
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: center;
+      background: linear-gradient(120deg, #FFF, #D4AF37);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #aaa;
+      margin-bottom: 60px;
+      font-size: 1.1rem;
+    }
+
+    /* experience stats cards */
+    .stats-grid {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      background: rgba(10, 10, 12, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 32px;
+      padding: 32px 40px;
+      text-align: center;
+      min-width: 220px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      transition: all 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px);
+      border-color: #D4AF37;
+    }
+
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #D4AF37;
+      margin-bottom: 12px;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    /* skill bars animated */
+    .skills-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      border-radius: 40px;
+      backdrop-filter: blur(4px);
+    }
+
+    .skill-item {
+      margin-bottom: 28px;
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .skill-bar-bg {
+      background: #2a2a2a;
+      border-radius: 20px;
+      height: 10px;
+      overflow: hidden;
+    }
+
+    .skill-progress {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #D4AF37, #0A66C2);
+      border-radius: 20px;
+      transition: width 1s ease-out;
+    }
+
+    /* services cards grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 28px;
+      margin-top: 30px;
+    }
+
+    .service-card {
+      background: rgba(20, 20, 28, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 28px;
+      padding: 32px 16px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid rgba(255,215,0,0.1);
+    }
+
+    .service-card i {
+      font-size: 2.8rem;
+      color: #D4AF37;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .service-card:hover {
+      transform: scale(1.02);
+      border-color: #D4AF37;
+      background: rgba(30,30,40,0.8);
+    }
+
+    /* masonry gallery (CSS multi-column masonry style) */
+    .portfolio-masonry {
+      column-count: 3;
+      column-gap: 24px;
+      margin-top: 20px;
+    }
+
+    .portfolio-item {
+      break-inside: avoid;
+      margin-bottom: 24px;
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.35s ease;
+      background: #111;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s ease, filter 0.3s;
+      border-radius: 24px;
+      aspect-ratio: auto;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.08);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.8), transparent);
+      padding: 20px;
+      opacity: 0;
+      transition: 0.3s;
+      color: white;
+      pointer-events: none;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    /* contact section */
+    .contact-flex {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .contact-btn {
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(12px);
+      padding: 14px 42px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid rgba(212,175,55,0.4);
+      transition: 0.2s;
+      color: white;
+    }
+
+    .contact-btn i {
+      font-size: 1.5rem;
+    }
+
+    .contact-btn.whatsapp:hover {
+      background: #25D366;
+      border-color: #25D366;
+      color: black;
+    }
+
+    .contact-btn.facebook:hover {
+      background: #1877F2;
+      border-color: #1877F2;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      margin-top: 40px;
+    }
+
+    .social-icons a {
+      color: #ccc;
+      font-size: 1.8rem;
+      transition: 0.2s;
+    }
+
+    .social-icons a:hover {
+      color: #D4AF37;
+      transform: translateY(-5px);
+    }
+
+    /* floating whatsapp */
+    .float-wa {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transition: 0.2s;
+    }
+
+    .float-wa a {
+      color: white;
+      font-size: 2.2rem;
+    }
+
+    .float-wa:hover {
+      transform: scale(1.08);
+      background: #20b358;
+    }
+
+    /* fullscreen lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.25s;
+    }
+
+    .lightbox.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 24px;
+      border: 2px solid gold;
+      box-shadow: 0 0 40px rgba(0,0,0,0.6);
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 3rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* responsive */
+    @media (max-width: 1024px) {
+      .portfolio-masonry { column-count: 2; }
+      .hero h1 { font-size: 3.5rem; }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      section { padding: 70px 0; }
+      .portfolio-masonry { column-count: 1; }
+      .hero h1 { font-size: 2.5rem; }
+      .btn-group { gap: 16px; }
+      .stat-card { padding: 20px 25px; min-width: 160px; }
+      .skills-wrapper { padding: 25px; }
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid rgba(212,175,55,0.2);
+      font-size: 0.8rem;
+      color: #666;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-content">
+      <h1>Creative Social Pro</h1>
+      <p>Professional Graphic Design Portfolio</p>
+      <div class="btn-group">
+        <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+        <a href="#contact" class="btn btn-outline">Contact Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Gallery Masonry + Fullscreen Preview -->
+  <section id="portfolio">
+    <div class="container">
+      <h2 class="section-title">Masterpieces</h2>
+      <div class="section-sub">Creative works — brand identity, social visuals, print & digital</div>
+      <div id="masonry-gallery" class="portfolio-masonry"></div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Experience & Impact</h2>
+      <div class="section-sub">Proven excellence in design</div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">3+</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat-card"><div class="stat-number">2500+</div><div class="stat-label">Designs Completed</div></div>
+        <div class="stat-card"><div class="stat-number">✨</div><div class="stat-label">Professional Designer</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section with animated bars -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Creative Expertise</h2>
+      <div class="section-sub">Mastering modern design tools</div>
+      <div class="skills-wrapper">
+        <div class="skill-item" data-progress="80"><div class="skill-header"><span>Adobe Photoshop</span><span>80%</span></div><div class="skill-bar-bg"><div class="skill-progress" style="width:0%"></div></div></div>
+        <div class="skill-item" data-progress="80"><div class="skill-header"><span>Adobe Illustrator</span><span>80%</span></div><div class="skill-bar-bg"><div class="skill-progress" style="width:0%"></div></div></div>
+        <div class="skill-item" data-progress="70"><div class="skill-header"><span>Printing Knowledge</span><span>70%</span></div><div class="skill-bar-bg"><div class="skill-progress" style="width:0%"></div></div></div>
+        <div class="skill-item" data-progress="80"><div class="skill-header"><span>AI Knowledge</span><span>80%</span></div><div class="skill-bar-bg"><div class="skill-progress" style="width:0%"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Premium Services</h2>
+      <div class="section-sub">Tailored design solutions for your brand</div>
+      <div class="services-grid">
+        <div class="service-card"><i class="fab fa-facebook"></i><h3>Facebook Posts</h3></div>
+        <div class="service-card"><i class="fas fa-id-card"></i><h3>Business Cards</h3></div>
+        <div class="service-card"><i class="fas fa-trademark"></i><h3>Logos</h3></div>
+        <div class="service-card"><i class="fas fa-flag"></i><h3>Banners</h3></div>
+        <div class="service-card"><i class="fas fa-tag"></i><h3>Stickers</h3></div>
+        <div class="service-card"><i class="fas fa-credit-card"></i><h3>ID Cards</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Let’s Connect</h2>
+      <div class="section-sub">Bring your vision to life</div>
+      <div class="contact-flex">
+        <a href="https://wa.me/94771234567" target="_blank" class="contact-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://facebook.com/creative.social.pro" target="_blank" class="contact-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-behance"></i></a>
+        <a href="#"><i class="fab fa-dribbble"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp Chat Button -->
+  <div class="float-wa">
+    <a href="https://wa.me/94771234567" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <footer>
+    <p>© 2025 Creative Social Pro — Luxury Graphic Design Studio. All works reserved.</p>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" src="" alt="Fullscreen preview">
+  </div>
+
+  <script>
+    // ---------- ALL PORTFOLIO IMAGES (extracted from user's provided urls) ----------
+    // Total of 100+ high-quality design works from the postimg.cc collection
+    const imageUrls = [
+      "https://i.postimg.cc/mzcN6Sn3/Whats-App-Image-2026-05-26-at-7-53-22-PM.jpg",
+      "https://i.postimg.cc/QFbbBC5x/Whats-App-Image-2026-05-26-at-7-53-22-PM-(1).jpg",
+      "https://i.postimg.cc/LgKfQFLF/Whats-App-Image-2026-05-26-at-7-53-23-PM.jpg",
+      "https://i.postimg.cc/dk7mS9fw/Whats-App-Image-2026-05-26-at-7-53-23-PM-(1).jpg",
+      "https://i.postimg.cc/NKg8wtnn/Whats-App-Image-2026-05-26-at-7-53-23-PM-(10).jpg",
+      "https://i.postimg.cc/v4Q7dyK2/Whats-App-Image-2026-05-26-at-7-53-23-PM-(11).jpg",
+      "https://i.postimg.cc/pm2QtvS1/Whats-App-Image-2026-05-26-at-7-53-23-PM-(12).jpg",
+      "https://i.postimg.cc/G4cP1RNr/Whats-App-Image-2026-05-26-at-7-53-23-PM-(13).jpg",
+      "https://i.postimg.cc/21zdfYJ3/Whats-App-Image-2026-05-26-at-7-53-23-PM-(14).jpg",
+      "https://i.postimg.cc/9DJdmS5d/Whats-App-Image-2026-05-26-at-7-53-23-PM-(15).jpg",
+      "https://i.postimg.cc/0zcYk3RG/Whats-App-Image-2026-05-26-at-7-53-23-PM-(16).jpg",
+      "https://i.postimg.cc/zLvnVj8W/Whats-App-Image-2026-05-26-at-7-53-23-PM-(17).jpg",
+      "https://i.postimg.cc/Lq5znT2j/Whats-App-Image-2026-05-26-at-7-53-23-PM-(18).jpg",
+      "https://i.postimg.cc/f3yxJKDC/Whats-App-Image-2026-05-26-at-7-53-23-PM-(19).jpg",
+      "https://i.postimg.cc/k6VFhyHW/Whats-App-Image-2026-05-26-at-7-53-23-PM-(2).jpg",
+      "https://i.postimg.cc/Z9nrCc4M/Whats-App-Image-2026-05-26-at-7-53-23-PM-(20).jpg",
+      "https://i.postimg.cc/XZqwp8nM/Whats-App-Image-2026-05-26-at-7-53-23-PM-(21).jpg",
+      "https://i.postimg.cc/Z9Q63dqk/Whats-App-Image-2026-05-26-at-7-53-23-PM-(22).jpg",
+      "https://i.postimg.cc/VShXMCNs/Whats-App-Image-2026-05-26-at-7-53-23-PM-(23).jpg",
+      "https://i.postimg.cc/PL71ZwqN/Whats-App-Image-2026-05-26-at-7-53-23-PM-(24).jpg",
+      "https://i.postimg.cc/MMjVYpcT/Whats-App-Image-2026-05-26-at-7-53-23-PM-(25).jpg",
+      "https://i.postimg.cc/9RqZBQ44/Whats-App-Image-2026-05-26-at-7-53-23-PM-(26).jpg",
+      "https://i.postimg.cc/wysLkjtQ/Whats-App-Image-2026-05-26-at-7-53-23-PM-(27).jpg",
+      "https://i.postimg.cc/CBfk4xZ6/Whats-App-Image-2026-05-26-at-7-53-23-PM-(28).jpg",
+      "https://i.postimg.cc/jn0N3YNk/Whats-App-Image-2026-05-26-at-7-53-23-PM-(29).jpg",
+      "https://i.postimg.cc/ygJXrTGD/Whats-App-Image-2026-05-26-at-7-53-23-PM-(3).jpg",
+      "https://i.postimg.cc/V0n9zkm0/Whats-App-Image-2026-05-26-at-7-53-23-PM-(5).jpg",
+      "https://i.postimg.cc/mhHyY8Mp/Whats-App-Image-2026-05-26-at-7-53-23-PM-(6).jpg",
+      "https://i.postimg.cc/Jtk5NPJ6/Whats-App-Image-2026-05-26-at-7-53-23-PM-(7).jpg",
+      "https://i.postimg.cc/ThDJVCg6/Whats-App-Image-2026-05-26-at-7-53-23-PM-(8).jpg",
+      "https://i.postimg.cc/PPnz2YQh/Whats-App-Image-2026-05-26-at-7-53-23-PM-(9).jpg",
+      "https://i.postimg.cc/JysP9mDb/Whats-App-Image-2026-05-26-at-8-02-46-PM.jpg",
+      "https://i.postimg.cc/PNYFXt6K/Whats-App-Image-2026-05-26-at-8-02-46-PM-(1).jpg",
+      "https://i.postimg.cc/hXy2yhGb/Whats-App-Image-2026-05-26-at-8-02-46-PM-(2).jpg",
+      "https://i.postimg.cc/678YDw2n/Whats-App-Image-2026-05-26-at-8-03-14-PM.jpg",
+      "https://i.postimg.cc/ppn8bTqV/Whats-App-Image-2026-05-26-at-8-05-06-PM.jpg",
+      "https://i.postimg.cc/HJrBfHcw/Whats-App-Image-2026-05-26-at-8-05-06-PM-(1).jpg",
+      "https://i.postimg.cc/LnvD5hj4/Whats-App-Image-2026-05-26-at-8-05-06-PM-(10).jpg",
+      "https://i.postimg.cc/tsT5xyzS/Whats-App-Image-2026-05-26-at-8-05-06-PM-(11).jpg",
+      "https://i.postimg.cc/bZBR0MCP/Whats-App-Image-2026-05-26-at-8-05-06-PM-(12).jpg",
+      "https://i.postimg.cc/hJQ12r6S/Whats-App-Image-2026-05-26-at-8-05-06-PM-(13).jpg",
+      "https://i.postimg.cc/62sLgZxH/Whats-App-Image-2026-05-26-at-8-05-06-PM-(14).jpg",
+      "https://i.postimg.cc/2Lrd8f6V/Whats-App-Image-2026-05-26-at-8-05-06-PM-(15).jpg",
+      "https://i.postimg.cc/Zv4PKhR0/Whats-App-Image-2026-05-26-at-8-05-06-PM-(16).jpg",
+      "https://i.postimg.cc/Lg2k6MXJ/Whats-App-Image-2026-05-26-at-8-05-06-PM-(17).jpg",
+      "https://i.postimg.cc/tnpdCHTh/Whats-App-Image-2026-05-26-at-8-05-06-PM-(18).jpg",
+      "https://i.postimg.cc/vxhr4Sg7/Whats-App-Image-2026-05-26-at-8-05-06-PM-(19).jpg",
+      "https://i.postimg.cc/8FxtG3M3/Whats-App-Image-2026-05-26-at-8-05-06-PM-(2).jpg",
+      "https://i.postimg.cc/ZvH8WDBw/Whats-App-Image-2026-05-26-at-8-05-06-PM-(20).jpg",
+      "https://i.postimg.cc/rRj1DY0P/Whats-App-Image-2026-05-26-at-8-05-06-PM-(21).jpg",
+      "https://i.postimg.cc/xN5vXFN0/Whats-App-Image-2026-05-26-at-8-05-06-PM-(22).jpg",
+      "https://i.postimg.cc/RqB2n6Jw/Whats-App-Image-2026-05-26-at-8-05-06-PM-(23).jpg",
+      "https://i.postimg.cc/23DgBbLG/Whats-App-Image-2026-05-26-at-8-05-06-PM-(24).jpg",
+      "https://i.postimg.cc/vDsC6gxj/Whats-App-Image-2026-05-26-at-8-05-06-PM-(25).jpg",
+      "https://i.postimg.cc/fkfp7zYq/Whats-App-Image-2026-05-26-at-8-05-06-PM-(26).jpg",
+      "https://i.postimg.cc/RqLy1Scx/Whats-App-Image-2026-05-26-at-8-05-06-PM-(27).jpg",
+      "https://i.postimg.cc/xq3hGfKf/Whats-App-Image-2026-05-26-at-8-05-06-PM-(28).jpg",
+      "https://i.postimg.cc/569Gnh39/Whats-App-Image-2026-05-26-at-8-05-06-PM-(29).jpg",
+      "https://i.postimg.cc/nj7Thk1n/Whats-App-Image-2026-05-26-at-8-05-06-PM-(3).jpg",
+      "https://i.postimg.cc/0b53cTfS/Whats-App-Image-2026-05-26-at-8-05-06-PM-(30).jpg",
+      "https://i.postimg.cc/6yHPSMj4/Whats-App-Image-2026-05-26-at-8-05-06-PM-(31).jpg",
+      "https://i.postimg.cc/kBjHZT1Y/Whats-App-Image-2026-05-26-at-8-05-06-PM-(32).jpg",
+      "https://i.postimg.cc/gnM75gSf/Whats-App-Image-2026-05-26-at-8-05-06-PM-(33).jpg",
+      "https://i.postimg.cc/5X6rM8TR/Whats-App-Image-2026-05-26-at-8-05-06-PM-(34).jpg",
+      "https://i.postimg.cc/3kdqH2zW/Whats-App-Image-2026-05-26-at-8-05-06-PM-(35).jpg",
+      "https://i.postimg.cc/QFwyNHrC/Whats-App-Image-2026-05-26-at-8-05-06-PM-(36).jpg",
+      "https://i.postimg.cc/LJwb4nML/Whats-App-Image-2026-05-26-at-8-05-06-PM-(37).jpg",
+      "https://i.postimg.cc/NKSzG5wN/Whats-App-Image-2026-05-26-at-8-05-06-PM-(38).jpg",
+      "https://i.postimg.cc/Cng7Bqvd/Whats-App-Image-2026-05-26-at-8-05-06-PM-(4).jpg",
+      "https://i.postimg.cc/vDh2gPdk/Whats-App-Image-2026-05-26-at-8-05-06-PM-(46).jpg",
+      "https://i.postimg.cc/grstXMWL/Whats-App-Image-2026-05-26-at-8-05-06-PM-(47).jpg",
+      "https://i.postimg.cc/F1pCdP4F/Whats-App-Image-2026-05-26-at-8-05-06-PM-(48).jpg",
+      "https://i.postimg.cc/K160SwnR/Whats-App-Image-2026-05-26-at-8-05-06-PM-(49).jpg",
+      "https://i.postimg.cc/ZvSHBdfy/Whats-App-Image-2026-05-26-at-8-05-06-PM-(5).jpg",
+      "https://i.postimg.cc/dhk5fwT8/Whats-App-Image-2026-05-26-at-8-05-06-PM-(50).jpg",
+      "https://i.postimg.cc/FYMT58j1/Whats-App-Image-2026-05-26-at-8-05-06-PM-(51).jpg",
+      "https://i.postimg.cc/sB5wVmcL/Whats-App-Image-2026-05-26-at-8-05-06-PM-(52).jpg",
+      "https://i.postimg.cc/KkFQ4TpB/Whats-App-Image-2026-05-26-at-8-05-06-PM-(53).jpg",
+      "https://i.postimg.cc/LYTDPsGr/Whats-App-Image-2026-05-26-at-8-05-06-PM-(54).jpg",
+      "https://i.postimg.cc/m1gwysGn/Whats-App-Image-2026-05-26-at-8-05-06-PM-(55).jpg",
+      "https://i.postimg.cc/mhL8sQF0/Whats-App-Image-2026-05-26-at-8-05-06-PM-(56).jpg",
+      "https://i.postimg.cc/V5fD8jbx/Whats-App-Image-2026-05-26-at-8-05-06-PM-(57).jpg",
+      "https://i.postimg.cc/grg4knVP/Whats-App-Image-2026-05-26-at-8-05-06-PM-(58).jpg",
+      "https://i.postimg.cc/CdcJLzGq/Whats-App-Image-2026-05-26-at-8-05-06-PM-(59).jpg",
+      "https://i.postimg.cc/kRvcxgZW/Whats-App-Image-2026-05-26-at-8-05-06-PM-(6).jpg",
+      "https://i.postimg.cc/w732tg20/Whats-App-Image-2026-05-26-at-8-05-06-PM-(60).jpg",
+      "https://i.postimg.cc/QHPb1wY6/Whats-App-Image-2026-05-26-at-8-05-06-PM-(61).jpg",
+      "https://i.postimg.cc/F1TGs7yj/Whats-App-Image-2026-05-26-at-8-05-06-PM-(62).jpg",
+      "https://i.postimg.cc/mPHSwj02/Whats-App-Image-2026-05-26-at-8-05-06-PM-(63).jpg",
+      "https://i.postimg.cc/hJR13xBM/Whats-App-Image-2026-05-26-at-8-05-06-PM-(64).jpg",
+      "https://i.postimg.cc/629LBXTj/Whats-App-Image-2026-05-26-at-8-05-06-PM-(65).jpg",
+      "https://i.postimg.cc/S2DLsvz6/Whats-App-Image-2026-05-26-at-8-05-06-PM-(66).jpg",
+      "https://i.postimg.cc/jCSQ9tpV/Whats-App-Image-2026-05-26-at-8-05-06-PM-(67).jpg",
+      "https://i.postimg.cc/Wt16KTQQ/Whats-App-Image-2026-05-26-at-8-05-06-PM-(68).jpg",
+      "https://i.postimg.cc/RqpQx2mN/Whats-App-Image-2026-05-26-at-8-05-06-PM-(69).jpg",
+      "https://i.postimg.cc/14GJxvtD/Whats-App-Image-2026-05-26-at-8-05-06-PM-(7).jpg",
+      "https://i.postimg.cc/kBVNJwMv/Whats-App-Image-2026-05-26-at-8-05-06-PM-(70).jpg",
+      "https://i.postimg.cc/BXdTXDX0/Whats-App-Image-2026-05-26-at-8-05-06-PM-(71).jpg",
+      "https://i.postimg.cc/YvY1g9WX/Whats-App-Image-2026-05-26-at-8-05-06-PM-(72).jpg",
+      "https://i.postimg.cc/06v7CsGk/Whats-App-Image-2026-05-26-at-8-05-06-PM-(73).jpg",
+      "https://i.postimg.cc/JD4J95dj/Whats-App-Image-2026-05-26-at-8-05-06-PM-(74).jpg",
+      "https://i.postimg.cc/R6sf9Jjs/Whats-App-Image-2026-05-26-at-8-05-06-PM-(75).jpg",
+      "https://i.postimg.cc/648ZQ5K9/Whats-App-Image-2026-05-26-at-8-05-06-PM-(76).jpg",
+      "https://i.postimg.cc/RqhKdGt0/Whats-App-Image-2026-05-26-at-8-05-06-PM-(77).jpg",
+      "https://i.postimg.cc/3WqpcpjL/Whats-App-Image-2026-05-26-at-8-05-06-PM-(78).jpg",
+      "https://i.postimg.cc/jLJN05vF/Whats-App-Image-2026-05-26-at-8-05-06-PM-(79).jpg",
+      "https://i.postimg.cc/3d39320r/Whats-App-Image-2026-05-26-at-8-05-06-PM-(8).jpg",
+      "https://i.postimg.cc/kB7w7WR7/Whats-App-Image-2026-05-26-at-8-05-06-PM-(9).jpg",
+      "https://i.postimg.cc/N5N8YSwr/Whats-App-Image-2026-05-26-at-7-59-34-PM.jpg",
+      "https://i.postimg.cc/T50wVzcq/Whats-App-Image-2026-05-26-at-7-59-34-PM-(1).jpg",
+      "https://i.postimg.cc/cr17pZPq/Whats-App-Image-2026-05-26-at-7-59-34-PM-(10).jpg",
+      "https://i.postimg.cc/6y6VkwFy/Whats-App-Image-2026-05-26-at-7-59-34-PM-(11).jpg",
+      "https://i.postimg.cc/BXh5skG6/Whats-App-Image-2026-05-26-at-7-59-34-PM-(12).jpg",
+      "https://i.postimg.cc/Bt0BC2g6/Whats-App-Image-2026-05-26-at-7-59-34-PM-(2).jpg",
+      "https://i.postimg.cc/MXSmY1DK/Whats-App-Image-2026-05-26-at-7-59-34-PM-(3).jpg",
+      "https://i.postimg.cc/w3pQkDVx/Whats-App-Image-2026-05-26-at-7-59-34-PM-(4).jpg",
+      "https://i.postimg.cc/nMJG1qkr/Whats-App-Image-2026-05-26-at-7-59-34-PM-(5).jpg",
+      "https://i.postimg.cc/nMGYSMRW/Whats-App-Image-2026-05-26-at-7-59-34-PM-(6).jpg",
+      "https://i.postimg.cc/grHqtrST/Whats-App-Image-2026-05-26-at-7-59-34-PM-(7).jpg",
+      "https://i.postimg.cc/237F93cg/Whats-App-Image-2026-05-26-at-7-59-34-PM-(8).jpg",
+      "https://i.postimg.cc/fkfjqk2G/Whats-App-Image-2026-05-26-at-7-59-34-PM-(9).jpg"
+    ];
+
+    const galleryContainer = document.getElementById('masonry-gallery');
+    function loadGallery() {
+      galleryContainer.innerHTML = '';
+      imageUrls.forEach(url => {
+        const item = document.createElement('div');
+        item.className = 'portfolio-item';
+        item.innerHTML = `
+          <img src="${url}" alt="Portfolio design" loading="lazy">
+          <div class="portfolio-overlay"><span><i class="fas fa-search-plus"></i>  preview</span></div>
+        `;
+        item.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openLightbox(url);
+        });
+        galleryContainer.appendChild(item);
+      });
+    }
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    function openLightbox(src) {
+      lightboxImg.src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.querySelector('.close-lightbox').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if(e.target === lightbox) closeLightbox();
+    });
+
+    // Animated skill bars with Intersection Observer
+    const skillItems = document.querySelectorAll('.skill-item');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          const progressBar = entry.target.querySelector('.skill-progress');
+          const progressVal = entry.target.getAttribute('data-progress') || '0';
+          progressBar.style.width = progressVal + '%';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    skillItems.forEach(skill => observer.observe(skill));
+
+    // smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const hash = this.getAttribute('href');
+        if(hash === "#" || hash === "") return;
+        const target = document.querySelector(hash);
+        if(target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    loadGallery();
+  </script>
+</body>
+</html>
